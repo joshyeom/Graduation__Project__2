@@ -1,3 +1,10 @@
-let now = new Date();
-const date = document.querySelector("#date");
-date.innerText = `${moment(now).format(`dddd, Do MM YYYY`)}`;
+const toDay = document.querySelector("#day");
+
+function getWorldTime(tzOffset) {
+  var now = new Date();
+  var tz = now.getTime() + now.getTimezoneOffset() * 60000 + tzOffset * 3600000;
+  now.setTime(tz);
+
+  console.log(now.getDate());
+}
+setInterval(1000, getWorldTime);
